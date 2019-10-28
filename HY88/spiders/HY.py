@@ -59,12 +59,12 @@ class HySpider(scrapy.Spider):
             for cont in cont_urls:
                 cont = cont + 'company_contact.html'  # 联系我们的url
                 #print(cont)
-                # yield scrapy.Request(
-                #     cont,
-                #     callback=self.parse_com_cont,  # 联系信息
-                #     meta={'item': deepcopy(item)},
-                #     dont_filter=True
-                # )
+                yield scrapy.Request(
+                    cont,
+                    callback=self.parse_com_cont,  # 联系信息
+                    meta={'item': deepcopy(item)},
+                    dont_filter=True
+                )
 
         # 列表页翻页
         next_url = response.xpath(
@@ -73,9 +73,11 @@ class HySpider(scrapy.Spider):
             print('------xiayiye------')
             yield scrapy.Request(
                 next_url,
-                callback=self.parse,
+                callback=self.parse_ind_cont,
                 meta={'item': deepcopy(item)},
                 dont_filter=True
             )
+
+
 
 
