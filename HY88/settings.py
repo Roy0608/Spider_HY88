@@ -35,8 +35,18 @@ DOWNLOADER_MIDDLEWARES = {
     'HY88.middlewares.RandomUserAgentMiddlware': 333,
     'scrapy.contrib.downloadermiddleware.httpproxy.HttpProxyMiddleware': None,
     'HY88.middlewares.MyproxiesSpiderMiddleware': 555
-
 }
+
+
+# MONGODB 主机名
+MONGODB_HOST = "127.0.0.1"
+# MONGODB 端口号
+MONGODB_PORT = 27017
+# 数据库名称
+MONGODB_DBNAME = "HY"
+# 存放数据的表名称
+MONGODB_SHEETNAME = "b2b_info"
+
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
@@ -84,9 +94,9 @@ ROBOTSTXT_OBEY = False
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'HY88.pipelines.Hy88Pipeline': 300,
-#}
+ITEM_PIPELINES = {
+   'HY88.pipelines.Hy88Pipeline': 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
