@@ -18,8 +18,8 @@
             <file pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/../HuangYe88/HuangYe88/spiders/HY88.py">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="475">
-                    <caret line="26" column="13" lean-forward="true" selection-start-line="19" selection-start-column="4" selection-end-line="26" selection-end-column="13" />
+                  <state relative-caret-position="442">
+                    <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
                   </state>
                 </provider>
               </entry>
@@ -34,8 +34,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/HY88/spiders/HY.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+            <state relative-caret-position="328">
+              <caret line="35" column="107" selection-start-line="35" selection-start-column="107" selection-end-line="35" selection-end-column="107" />
             </state>
           </provider>
         </entry>
@@ -70,9 +70,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="504" />
-    <option name="y" value="47" />
-    <option name="width" value="1444" />
+    <option name="x" value="263" />
+    <option name="y" value="92" />
+    <option name="width" value="1619" />
     <option name="height" value="762" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -107,6 +107,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -134,15 +135,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1572229483448</updated>
-      <workItem from="1572229484695" duration="855000" />
+      <workItem from="1572229484695" duration="1131000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="855000" />
+    <option name="totallyTimeSpent" value="1131000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="504" y="47" width="1444" height="762" extended-state="0" />
+    <frame x="168" y="88" width="1444" height="762" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
@@ -181,15 +182,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../HuangYe88/HuangYe88/spiders/HY88.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="26" column="13" lean-forward="true" selection-start-line="19" selection-start-column="4" selection-end-line="26" selection-end-column="13" />
+        <state relative-caret-position="442">
+          <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/HY88/spiders/HY.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+        <state relative-caret-position="328">
+          <caret line="35" column="107" selection-start-line="35" selection-start-column="107" selection-end-line="35" selection-end-column="107" />
         </state>
       </provider>
     </entry>
