@@ -82,17 +82,17 @@ class HySpider(scrapy.Spider):
     def parse_com_det(self, response):
         item = response.meta['item']
         # 公司资料
-        item['com_name'] = response.xpath('//div[@class="data"]/p/text()').extract_first()
+        item['com_name'] = response.xpath('//div[@class="data"]/p/text()').extract_first() # 公司名
         info = response.xpath('//div[@class="data"]/ul[@class="con-txt"]/li')
         com_info = []
         for i in info:
             com_info.append("".join(i.xpath('.//text()').extract()))
         # 把列表转换成字符串并用逗号把每个信息隔开
-        item['com_info'] = ",".join(com_info)
+        item['com_info'] = ",".join(com_info) # 公司资料信息
 
         # 公司介绍
         item['com_intro'] = "".join(
-            response.xpath('//div[@class="r-content"]/p[@class="txt"]//text()').extract())
+            response.xpath('//div[@class="r-content"]/p[@class="txt"]//text()').extract()) # 公司介绍信息
 
         # 详细资料（表格）
         info2 = response.xpath('//p[@class="txt"]/following-sibling::table[1]/tr')
@@ -100,7 +100,7 @@ class HySpider(scrapy.Spider):
         for j in info2:
             det_info.append("：".join(j.xpath('./td//text()').extract()))
         # 把列表转换成字符串并用逗号把每个信息隔开
-        item['det_info'] = ",".join(det_info)
+        item['det_info'] = ",".join(det_info) # 公司详细资料信息
         yield item
 
 
