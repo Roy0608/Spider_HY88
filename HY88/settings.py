@@ -33,8 +33,8 @@ USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTM
 
 DOWNLOADER_MIDDLEWARES = {
     'HY88.middlewares.RandomUserAgentMiddlware': 333,
-    'scrapy.contrib.downloadermiddleware.httpproxy.HttpProxyMiddleware': None,
-    'HY88.middlewares.MyproxiesSpiderMiddleware': 555
+    #'scrapy.contrib.downloadermiddleware.httpproxy.HttpProxyMiddleware': None,
+    #'HY88.middlewares.MyproxiesSpiderMiddleware': 555
 
 }
 

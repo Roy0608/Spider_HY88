@@ -50,18 +50,32 @@ class HySpider(scrapy.Spider):
 
     def parse_ind_cont(self, response):
         item = response.meta['item']
-        cont_urls = response.xpath('//form[@id="jubao"]/dl/dt/h4/a/@href').extract()  # 公司url
-        # item['com_name'] = response.xpath('//form[@id="jubao"]/dl/dt/h4/a/text()').extract()
+        cont_urls = response.xpath('//form[@id="jubao"]/dl[@itemtype="http://data-vocabulary.org/Organization"]'
+                                   '/dt/h4/a/@href').extract()  # 公司url
+        # item['com_name'] = response.xpath('//form[@id="jubao"]/dl[@itemtype="http://data-vocabulary.org/Organization"]
+                                        # /dt/h4/a/text()').extract()
         # print(item)
         if cont_urls is not None:
             for cont in cont_urls:
                 cont = cont + 'company_contact.html'  # 联系我们的url
-                print(cont)
+                #print(cont)
                 # yield scrapy.Request(
                 #     cont,
                 #     callback=self.parse_com_cont,  # 联系信息
                 #     meta={'item': deepcopy(item)},
                 #     dont_filter=True
                 # )
+
+        # 列表页翻页
+        next_url = response.xpath(
+            '//div[@class="page_tag Baidu_paging_indicator"]/a[contains(text(), "下一页")]/@href').extract_first()
+        if next_url is not None:
+            print('------xiayiye------')
+            yield scrapy.Request(
+                next_url,
+                callback=self.parse,
+                meta={'item': deepcopy(item)},
+                dont_filter=True
+            )
 
 
