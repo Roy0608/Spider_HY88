@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="fbd6d0d3-e226-446c-a4d3-ab3fde7fd506" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HY88/middlewares.py" beforeDir="false" afterPath="$PROJECT_DIR$/HY88/middlewares.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HY88/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/HY88/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HY88/spiders/HY.py" beforeDir="false" afterPath="$PROJECT_DIR$/HY88/spiders/HY.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,32 +11,13 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="DockManager">
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-            <file pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/../HuangYe88/HuangYe88/spiders/HY88.py">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="443">
-                    <caret line="49" selection-start-line="49" selection-end-line="49" />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/HY88/spiders/HY.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="779">
-              <caret line="41" column="23" selection-start-line="41" selection-start-column="23" selection-end-line="41" selection-end-column="23" />
+            <state relative-caret-position="323">
+              <caret line="47" column="32" lean-forward="true" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="32" />
               <folding>
                 <element signature="e#24#37#0" expanded="true" />
               </folding>
@@ -66,11 +46,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/HY88/settings.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="494">
-              <caret line="26" column="34" lean-forward="true" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
+              <caret line="26" column="34" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -90,17 +70,17 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/HY88/spiders/HY.py" />
         <option value="$PROJECT_DIR$/HY88/getProxy.py" />
         <option value="$PROJECT_DIR$/HY88/middlewares.py" />
         <option value="$PROJECT_DIR$/HY88/settings.py" />
+        <option value="$PROJECT_DIR$/HY88/spiders/HY.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="332" />
-    <option name="y" value="70" />
-    <option name="width" value="1316" />
+    <option name="x" value="574" />
+    <option name="y" value="27" />
+    <option name="width" value="1596" />
     <option name="height" value="895" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -160,18 +140,19 @@
       <workItem from="1572229484695" duration="5745000" />
       <workItem from="1572238246040" duration="209000" />
       <workItem from="1572238552787" duration="1621000" />
-      <workItem from="1572242033508" duration="240000" />
+      <workItem from="1572242033508" duration="1373000" />
+      <workItem from="1572244150947" duration="410000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7815000" />
+    <option name="totallyTimeSpent" value="9358000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="332" y="70" width="1316" height="895" extended-state="0" />
+    <frame x="591" y="100" width="1596" height="895" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28980893" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24023438" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -202,10 +183,17 @@
     <entry file="file://$PROJECT_DIR$/../LaGouSpider/LaGouSpider/spiders/LaGou.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/../HuangYe88/HuangYe88/spiders/HY88.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="40" column="22" lean-forward="true" selection-start-line="40" selection-start-column="22" selection-end-line="40" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/HY88/spiders/HY.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="779">
-          <caret line="41" column="23" selection-start-line="41" selection-start-column="23" selection-end-line="41" selection-end-column="23" />
+        <state relative-caret-position="323">
+          <caret line="47" column="32" lean-forward="true" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="32" />
           <folding>
             <element signature="e#24#37#0" expanded="true" />
           </folding>
@@ -229,17 +217,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../HuangYe88/HuangYe88/spiders/HY88.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="443">
-          <caret line="49" selection-start-line="49" selection-end-line="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/HY88/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="494">
-          <caret line="26" column="34" lean-forward="true" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
+          <caret line="26" column="34" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
         </state>
       </provider>
     </entry>

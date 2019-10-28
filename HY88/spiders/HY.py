@@ -32,18 +32,36 @@ class HySpider(scrapy.Spider):
         item['pro'] = response.xpath('//div[@class="subNav"]/a[2]/text()').extract()[0][:-4]
         # 市
         item['city'] = response.xpath('//div[@class="subNav"]/a[3]/text()').extract()[0][:-4]
-        # 区
-        item['reg'] = response.xpath('//div[@class="subNav"]/text()')\
-                                            .extract()[2].replace(' » ','').replace('\r\n','')
+        # 区县
+        item['reg'] = response.xpath('//div[@class="subNav"]/text()').extract()[2]\
+                                                        .replace(' » ','').replace('\r\n','')\
+                                                    .split('市',1)[1].split('企')[0]
 
         ind_urls = response.xpath('//div[@class="tag_tx"]/ul/li/a/@href').extract() # 行业url
         for ind in ind_urls:
             print(ind)
             print(item)
-            # yield scrapy.Request(
-            #     ind,
-            #     callback=self.parse_ind_cont,  # 企业信息
-            #     meta={'item': deepcopy(item)},
-            #     dont_filter=True
-            # )
+            yield scrapy.Request(
+                ind,
+                callback=self.parse_ind_cont,  # 企业信息
+                meta={'item': deepcopy(item)},
+                dont_filter=True
+            )
+
+    def parse_ind_cont(self, response):
+        item = response.meta['item']
+        cont_urls = response.xpath('//form[@id="jubao"]/dl/dt/h4/a/@href').extract()  # 公司url
+        # item['com_name'] = response.xpath('//form[@id="jubao"]/dl/dt/h4/a/text()').extract()
+        # print(item)
+        if cont_urls is not None:
+            for cont in cont_urls:
+                cont = cont + 'company_contact.html'  # 联系我们的url
+                print(cont)
+                # yield scrapy.Request(
+                #     cont,
+                #     callback=self.parse_com_cont,  # 联系信息
+                #     meta={'item': deepcopy(item)},
+                #     dont_filter=True
+                # )
+
 
