@@ -11,7 +11,7 @@ class HySpider(scrapy.Spider):
     def parse(self, response):
         city_urls = response.xpath('//dl[@id="clist"]/dd/a/@href').extract()  # 城市url
         for city in city_urls:
-            print(city)
+            #print(city)
             yield scrapy.Request(
                 city,
                 callback=self.parse_reg_urls  # 市所属的区县
@@ -20,7 +20,7 @@ class HySpider(scrapy.Spider):
     def parse_reg_urls(self, response):
         reg_urls = response.xpath('//div[@id="subarealist"]/div[2]/a/@href').extract() # 区县url
         for reg in reg_urls:
-            print(reg)
+            #print(reg)
             yield scrapy.Request(
                 reg,
                 callback=self.parse_ind_urls  # 不同行业和所属省市区
@@ -33,35 +33,36 @@ class HySpider(scrapy.Spider):
         # 市
         item['city'] = response.xpath('//div[@class="subNav"]/a[3]/text()').extract()[0][:-4]
         # 区县
-        item['reg'] = response.xpath('//div[@class="subNav"]/text()').extract()[2]\
-                                                        .replace(' » ','').replace('\r\n','')\
-                                                    .split('市',1)[1].split('企')[0]
+        item['reg'] = response.xpath(
+            '//div[@class="subNav"]/text()').extract()[2].replace(' » ','').replace('\r\n','').split(
+            '市',1)[1].split('企')[0]
 
         ind_urls = response.xpath('//div[@class="tag_tx"]/ul/li/a/@href').extract() # 行业url
         for ind in ind_urls:
-            print(ind)
-            print(item)
+            #print(ind)
+            #print(item)
             yield scrapy.Request(
                 ind,
-                callback=self.parse_ind_cont,  # 企业信息
+                callback=self.parse_ind_det,  # 企业信息
                 meta={'item': deepcopy(item)},
                 dont_filter=True
             )
 
-    def parse_ind_cont(self, response):
+    def parse_ind_det(self, response):
         item = response.meta['item']
-        cont_urls = response.xpath('//form[@id="jubao"]/dl[@itemtype="http://data-vocabulary.org/Organization"]'
-                                   '/dt/h4/a/@href').extract()  # 公司url
-        # item['com_name'] = response.xpath('//form[@id="jubao"]/dl[@itemtype="http://data-vocabulary.org/Organization"]
-                                        # /dt/h4/a/text()').extract()
+        # 公司url
+        det_urls = response.xpath(
+            '//form[@id="jubao"]/dl[@itemtype="http://data-vocabulary.org/Organization"]/dt/h4/a/@href').extract()
+        # item['com_name'] = response.xpath(
+            # '//form[@id="jubao"]/dl[@itemtype="http://data-vocabulary.org/Organization"]/dt/h4/a/text()').extract()
         # print(item)
-        if cont_urls is not None:
-            for cont in cont_urls:
-                cont = cont + 'company_contact.html'  # 联系我们的url
-                #print(cont)
+        if det_urls is not None:
+            for det in det_urls:
+                det = det + 'company_detail.html'  # 公司详情的url
+                #print(det)
                 yield scrapy.Request(
-                    cont,
-                    callback=self.parse_com_cont,  # 联系信息
+                    det,
+                    callback=self.parse_com_det,  # 详细信息
                     meta={'item': deepcopy(item)},
                     dont_filter=True
                 )
@@ -70,13 +71,37 @@ class HySpider(scrapy.Spider):
         next_url = response.xpath(
             '//div[@class="page_tag Baidu_paging_indicator"]/a[contains(text(), "下一页")]/@href').extract_first()
         if next_url is not None:
-            print('------xiayiye------')
+            #print('------xiayiye------')
             yield scrapy.Request(
                 next_url,
-                callback=self.parse_ind_cont,
+                callback=self.parse_ind_det,
                 meta={'item': deepcopy(item)},
                 dont_filter=True
             )
+
+    def parse_com_det(self, response):
+        item = response.meta['item']
+        # 公司资料
+        item['com_name'] = response.xpath('//div[@class="data"]/p/text()').extract_first()
+        info = response.xpath('//div[@class="data"]/ul[@class="con-txt"]/li')
+        com_info = []
+        for i in info:
+            com_info.append("".join(i.xpath('.//text()').extract()))
+        # 把列表转换成字符串并用逗号把每个信息隔开
+        item['com_info'] = ",".join(com_info)
+
+        # 公司介绍
+        item['com_intro'] = "".join(
+            response.xpath('//div[@class="r-content"]/p[@class="txt"]//text()').extract())
+
+        # 详细资料（表格）
+        info2 = response.xpath('//p[@class="txt"]/following-sibling::table[1]/tr')
+        det_info = []
+        for j in info2:
+            det_info.append("：".join(j.xpath('./td//text()').extract()))
+        # 把列表转换成字符串并用逗号把每个信息隔开
+        item['det_info'] = ",".join(det_info)
+        yield item
 
 
 
