@@ -7,6 +7,9 @@
 
 from scrapy import signals
 from fake_useragent import UserAgent
+import random
+from scrapy import signals
+from HY88.settings import IPPOOL
 
 class RandomUserAgentMiddlware(object):
     #随机更换user-agent
@@ -20,6 +23,17 @@ class RandomUserAgentMiddlware(object):
 
     def process_request(self,request,spider):
         request.headers.setdefault("User-Agent",self.ua.random)
+
+
+class MyproxiesSpiderMiddleware(object):
+
+    def __init__(self, ip=''):
+        self.ip = ip
+
+    def process_request(self, request, spider):
+        thisip = random.choice(IPPOOL)
+        print("this is ip:" + thisip["ipaddr"])
+        request.meta["proxy"] = "http://" + thisip["ipaddr"]
 
 
 class Hy88SpiderMiddleware(object):
