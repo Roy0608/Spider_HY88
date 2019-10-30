@@ -15,16 +15,16 @@ SPIDER_MODULES = ['HY88.spiders']
 NEWSPIDER_MODULE = 'HY88.spiders'
 
 IPPOOL=[
-    {"ipaddr":"123.163.96.14:9999"},
-    {"ipaddr":"113.128.29.173:61234"},
-    {"ipaddr":"59.57.149.130:9999"},
-    {"ipaddr":"183.164.238.8:47964"},
-    {"ipaddr":"114.239.42.251:9999"},
-    {"ipaddr":"122.193.228.160:50074"},
-    {"ipaddr":"114.239.146.137:808"},
-    {"ipaddr":"180.122.144.184:29083"},
-    {"ipaddr":"182.34.32.40:9999"},
-    {"ipaddr":"114.239.199.189:9999"}
+    {"ipaddr":"112.113.153.195:894"},
+    {"ipaddr":"117.69.26.21:36410"},
+    {"ipaddr":"182.107.135.174:3617"},
+    {"ipaddr":"117.92.118.198:23564"},
+    {"ipaddr":"61.138.222.76:5412"},
+    {"ipaddr":"111.79.161.126:766"},
+    {"ipaddr":"123.130.182.185:766"},
+    # {"ipaddr":"222.189.191.221:9999"},
+    # {"ipaddr":"113.120.39.144:9999"},
+    # {"ipaddr":"27.152.91.225:9999"}
 ]
 
 
@@ -33,8 +33,8 @@ USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTM
 
 DOWNLOADER_MIDDLEWARES = {
     'HY88.middlewares.RandomUserAgentMiddlware': 333,
-    'scrapy.contrib.downloadermiddleware.httpproxy.HttpProxyMiddleware': None,
-    'HY88.middlewares.MyproxiesSpiderMiddleware': 555
+    # 'scrapy.contrib.downloadermiddleware.httpproxy.HttpProxyMiddleware': None,
+    # 'HY88.middlewares.MyproxiesSpiderMiddleware': 555
 }
 
 
