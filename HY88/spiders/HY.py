@@ -99,7 +99,25 @@ class HySpider(scrapy.Spider):
             det_info.append("：".join(j.xpath('./td//text()').extract()))
         # 把列表转换成字符串并用逗号把每个信息隔开
         item['det_info'] = ",".join(det_info) # 公司详细资料信息
+        cont_url = response.xpath('//div[@class="nav"]/ul/a/li[contains(text(), "联系我们")]/../@href').extract_first()
+        #yield item
+        yield scrapy.Request(
+            cont_url,
+            callback=self.parse_cont_det,
+            meta={'item3': deepcopy(item)},
+            dont_filter=True
+        )
+
+    def parse_cont_det(self, response):
+        item = response.meta['item3']
+        info2 = response.xpath('//div[@class="site"]/ul[@class="con-txt"]/li')
+        cont_info = []
+        for i in info2:
+            cont_info.append("".join(i.xpath('.//text()').extract()))
+        # 把列表转换成字符串并用逗号把每个信息隔开
+        item['cont_info'] = ",".join(cont_info)  # 公司资料信息
         yield item
+
 
 
 
